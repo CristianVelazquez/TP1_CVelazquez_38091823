@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.15)
+project(TP1Velazquez C)
+
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Werror -pedantic -Wextra -Wconversion")
+add_executable(servidor servidor.c)
+add_executable(authService authService.c)
+add_executable(filesService filesService.c )
+add_executable(cliente cliente.c)
+target_link_libraries(filesService PUBLIC -lrt -lssl -lcrypto)
+target_link_libraries(authService PUBLIC -lrt)
+target_link_libraries(servidor PUBLIC -lrt)
